@@ -81,6 +81,41 @@
         .card p { color: #ccc; margin-bottom: 20px; }
         .card-link { color: #003399; text-decoration: none; font-weight: bold; }
         
+        /* Calculator */
+        .calculator {
+            background: rgba(0,51,153,0.05);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 1px solid #003399;
+        }
+        .calculator input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid #003399;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1rem;
+            margin: 10px 0;
+        }
+        .calculator button {
+            background: #003399;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .calculator button:hover { background: #FFD700; color: #000; }
+        .result { margin-top: 15px; font-size: 1.2rem; text-align: center; }
+        
+        /* Partners */
+        .partners { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin: 40px 0; }
+        .partner { background: rgba(255,255,255,0.05); padding: 15px 25px; border-radius: 40px; font-weight: bold; }
+        
         .footer {
             text-align: center;
             padding: 40px 20px;
@@ -145,24 +180,103 @@
         </div>
     </div>
 
+    <!-- Core Mechanism -->
+    <div class="formula-box">
+        <p id="formula1">📈 Buy <span class="highlight">+1%</span> of EURZ supply</p>
+        <p id="formulaArrow">↓ ↓ ↓</p>
+        <p id="formula2">💎 Get <span class="highlight">+9%</span> in illiquid assets added to your liquidity</p>
+        <div class="small" id="formulaDesc">(frozen funds, side pockets, NPLs, gold, diamonds, crypto bills)</div>
+    </div>
+
+    <!-- Calculator -->
+    <div class="calculator">
+        <h3 style="text-align:center; color:#003399;" id="calcTitle">📊 Calculate Your Growth</h3>
+        <input type="number" id="percentInput" placeholder="Enter % of EURZ supply you buy (e.g., 0.5, 1, 2)" step="any">
+        <button onclick="calculateGrowth()" id="calcBtn">Calculate</button>
+        <div class="result" id="result"></div>
+    </div>
+
     <div class="section">
-        <div class="section-title" id="title1">⚡ About EURZ</div>
+        <div class="section-title" id="title1">⚡ How It Works</div>
         <div class="cards">
-            <div class="card"><div class="card-icon">🔄</div><h3 id="card1Title">Fixed Supply</h3><p id="card1Desc">Total supply: 1,000,000,000,000 EURZ. No mint. No freeze.</p></div>
-            <div class="card"><div class="card-icon">🔒</div><h3 id="card2Title">Ownership Revoked</h3><p id="card2Desc">Admin rights are revoked. No one can mint new tokens or change metadata.</p></div>
-            <div class="card"><div class="card-icon">🏦</div><h3 id="card3Title">Part of BYT Assist</h3><p id="card3Desc">EURZ is part of the BYT Assist ecosystem.</p></div>
+            <div class="card"><div class="card-icon">🔄</div><h3 id="card1Title">Auto-Backing</h3><p id="card1Desc">Every time you buy EURZ, the protocol automatically backs your holding with illiquid assets at a 9x multiplier.</p></div>
+            <div class="card"><div class="card-icon">🏦</div><h3 id="card2Title">What You Co-Own</h3><p id="card2Desc">Frozen funds, side pockets, NPLs, distressed debt, gold (SKR), lab-grown diamonds, crypto bills.</p></div>
+            <div class="card"><div class="card-icon">📈</div><h3 id="card3Title">9x Multiplier</h3><p id="card3Desc">1% of EURZ purchased = +9% in illiquid assets backing your position.</p></div>
         </div>
     </div>
 
     <div class="section">
-        <div class="section-title" id="title2">💰 Tokenomics</div>
+        <div class="section-title" id="title2">🔒 Assets Backing EURZ</div>
         <div class="cards">
-            <div class="card"><div class="card-icon">🔄</div><h3>Total Supply</h3><p>1,000,000,000,000 EURZ</p></div>
-            <div class="card"><div class="card-icon">🔒</div><h3>Ownership Revoked</h3><p>No mint. No freeze.</p></div>
-            <div class="card"><div class="card-icon">🏦</div><h3>Network</h3><p>TON</p></div>
+            <div class="card"><div class="card-icon">🏦</div><h3>Frozen Funds & Side Pockets</h3><p>Locked capital from hedge funds, PE, VC — turned into liquidity.</p></div>
+            <div class="card"><div class="card-icon">🥇</div><h3>Gold (SKR)</h3><p>Warehouse receipts from Global Trust Depository and HSBC.</p></div>
+            <div class="card"><div class="card-icon">💎</div><h3>Lab-Grown Diamonds</h3><p>IGI/GIA certified, stored in insured vaults.</p></div>
+            <div class="card"><div class="card-icon">📜</div><h3>Crypto Bills</h3><p>Promissory notes used as collateral or leased for yield.</p></div>
+            <div class="card"><div class="card-icon">📉</div><h3>Distressed Debt & NPLs</h3><p>Non-performing loans and bankruptcy claims acquired at deep discount.</p></div>
         </div>
     </div>
 
+    <div class="section">
+        <div class="section-title" id="title3">📊 Example</div>
+        <div class="cards">
+            <div class="card"><div class="card-icon">1️⃣</div><h3>You Buy</h3><p>1% of EURZ total supply</p></div>
+            <div class="card"><div class="card-icon">➕</div><h3>You Get</h3><p><span class="highlight">+9% in illiquid assets</span> added to your liquidity</p></div>
+            <div class="card"><div class="card-icon">💰</div><h3>Total Backing</h3><p>10% (1% token + 9% assets)</p></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title" id="title4">💰 EURZ Tokenomics</div>
+        <div class="cards">
+            <div class="card"><div class="card-icon">🔄</div><h3>Total Supply</h3><p>1,000,000,000,000 EURZ</p><p>Fixed. No mint. No freeze.</p></div>
+            <div class="card"><div class="card-icon">🔒</div><h3>Ownership Revoked</h3><p>Admin rights are revoked. No one can mint new tokens or change metadata.</p></div>
+            <div class="card"><div class="card-icon">🏦</div><h3>Asset Backed</h3><p>Gold (SKR) • Lab-grown diamonds • Crypto Bills • Illiquid funds</p></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title" id="title5">🔗 How to Buy EURZ</div>
+        <div class="cards">
+            <div class="card"><div class="card-icon">🔄</div><h3>Swap on STON.fi</h3><p>Pair: EURZ / TON</p><a href="https://app.ston.fi/swap?jetton=EQBz3I30PETGxiz8C5N60JfRwNfdU9l6pWNYVelMQjfNpeJw" class="card-link" target="_blank">Swap now →</a></div>
+            <div class="card"><div class="card-icon">💳</div><h3>Buy TON with Card</h3><p>Visa / Mastercard / Apple Pay</p><a href="https://mercuryo.io/buy?coin=TON" class="card-link" target="_blank">Buy TON →</a></div>
+            <div class="card"><div class="card-icon">📱</div><h3>Binance Web3 Wallet</h3><p>Buy BYT → swap to EURZ (coming soon)</p></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title" id="title6">🤝 Partners & Integrations</div>
+        <div class="partners">
+            <div class="partner">Global Trust Depository</div>
+            <div class="partner">IGI/GIA Certified</div>
+            <div class="partner">STON.fi</div>
+            <div class="partner">DeDust</div>
+            <div class="partner">Tonkeeper</div>
+            <div class="partner">MyTonWallet</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title" id="title7">🔒 KYC Verification</div>
+        <div class="cards">
+            <div class="card"><div class="card-icon">📋</div><h3>Complete KYC</h3><p>Required for large purchases and institutional investors.</p><a href="kyc.html" class="card-link" target="_blank">Go to KYC →</a></div>
+        </div>
+    </div>
+
+    <!-- Risks Section -->
+    <div class="section">
+        <div class="section-title" id="title8">⚠️ Risks & Disclaimers</div>
+        <div class="card">
+            <ul id="risksList">
+                <li><strong>Market volatility</strong> — Crypto markets are highly volatile.</li>
+                <li><strong>Regulatory risks</strong> — Changes in UAE/EU/USA regulations may affect operations.</li>
+                <li><strong>Liquidity risks</strong> — Illiquid assets may take time to monetize.</li>
+                <li><strong>Smart contract risks</strong> — Audited but no system is 100% secure.</li>
+                <li><strong>Investment & Utility</strong> — EURZ is designed for long-term value appreciation through real-world asset backing. While it can be held as an investment, it also provides utility within the ecosystem — governance, staking, and access to illiquid asset pools. Not registered as a security.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer with full navigation -->
     <div class="footer">
         <p>© 2026 EURZ — Part of BYT Assist ecosystem</p>
         <p>
@@ -184,34 +298,63 @@
 </div>
 
 <script>
+    function calculateGrowth() {
+        let percent = parseFloat(document.getElementById('percentInput').value);
+        if (isNaN(percent)) percent = 0;
+        let assets = percent * 9;
+        document.getElementById('result').innerHTML = `<span class="highlight">${percent}% of EURZ supply</span> → <span class="highlight">+${assets}% in illiquid assets</span>`;
+    }
+
     const translations = {
         en: {
             tagline: "Digital Asset on TON",
             btnBot: "🤖 Telegram Bot",
             btnBuy: "💰 Buy EURZ",
             btnSupport: "💬 Support",
-            title1: "⚡ About EURZ",
-            card1Title: "Fixed Supply",
-            card1Desc: "Total supply: 1,000,000,000,000 EURZ. No mint. No freeze.",
-            card2Title: "Ownership Revoked",
-            card2Desc: "Admin rights are revoked. No one can mint new tokens or change metadata.",
-            card3Title: "Part of BYT Assist",
-            card3Desc: "EURZ is part of the BYT Assist ecosystem.",
-            title2: "💰 Tokenomics"
+            formula1: "📈 Buy +1% of EURZ supply",
+            formula2: "💎 Get +9% in illiquid assets added to your liquidity",
+            formulaDesc: "(frozen funds, side pockets, NPLs, gold, diamonds, crypto bills)",
+            calcTitle: "📊 Calculate Your Growth",
+            calcBtn: "Calculate",
+            title1: "⚡ How It Works",
+            card1Title: "Auto-Backing",
+            card1Desc: "Every time you buy EURZ, the protocol automatically backs your holding with illiquid assets at a 9x multiplier.",
+            card2Title: "What You Co-Own",
+            card2Desc: "Frozen funds, side pockets, NPLs, distressed debt, gold (SKR), lab-grown diamonds, crypto bills.",
+            card3Title: "9x Multiplier",
+            card3Desc: "1% of EURZ purchased = +9% in illiquid assets backing your position.",
+            title2: "🔒 Assets Backing EURZ",
+            title3: "📊 Example",
+            title4: "💰 EURZ Tokenomics",
+            title5: "🔗 How to Buy EURZ",
+            title6: "🤝 Partners & Integrations",
+            title7: "🔒 KYC Verification",
+            title8: "⚠️ Risks & Disclaimers"
         },
         ru: {
             tagline: "Цифровой актив на TON",
             btnBot: "🤖 Telegram Бот",
             btnBuy: "💰 Купить EURZ",
             btnSupport: "💬 Поддержка",
-            title1: "⚡ О EURZ",
-            card1Title: "Фиксированная эмиссия",
-            card1Desc: "Общая эмиссия: 1 000 000 000 000 EURZ. Никакой допэмиссии или заморозки.",
-            card2Title: "Права отозваны",
-            card2Desc: "Права администратора отозваны. Никто не может выпускать новые токены или менять метаданные.",
-            card3Title: "Часть BYT Assist",
-            card3Desc: "EURZ является частью экосистемы BYT Assist.",
-            title2: "💰 Токеномика"
+            formula1: "📈 Вы покупаете +1% от эмиссии EURZ",
+            formula2: "💎 К вашей ликвидности добавляется +9% в неликвидных активах",
+            formulaDesc: "(замороженные фонды, side pockets, NPL, золото, бриллианты, криптовекселя)",
+            calcTitle: "📊 Рассчитайте свой рост",
+            calcBtn: "Рассчитать",
+            title1: "⚡ Как это работает",
+            card1Title: "Автоматическое обеспечение",
+            card1Desc: "Каждый раз, когда вы покупаете EURZ, протокол автоматически добавляет неликвидные активы к вашей позиции с множителем 9x.",
+            card2Title: "Что вы получаете",
+            card2Desc: "Замороженные фонды, side pockets, NPL, золото (SKR), бриллианты, криптовекселя.",
+            card3Title: "Множитель 9x",
+            card3Desc: "1% купленного EURZ = +9% неликвидных активов в обеспечение.",
+            title2: "🔒 Активы в обеспечении EURZ",
+            title3: "📊 Пример",
+            title4: "💰 Токеномика EURZ",
+            title5: "🔗 Как купить EURZ",
+            title6: "🤝 Партнёры",
+            title7: "🔒 KYC Верификация",
+            title8: "⚠️ Риски и отказ от ответственности"
         }
     };
     const defaultLang = "en";
@@ -221,6 +364,11 @@
         document.getElementById('btnBot').innerText = t.btnBot;
         document.getElementById('btnBuy').innerText = t.btnBuy;
         document.getElementById('btnSupport').innerText = t.btnSupport;
+        document.getElementById('formula1').innerHTML = t.formula1;
+        document.getElementById('formula2').innerHTML = t.formula2;
+        document.getElementById('formulaDesc').innerText = t.formulaDesc;
+        document.getElementById('calcTitle').innerText = t.calcTitle;
+        document.getElementById('calcBtn').innerText = t.calcBtn;
         document.getElementById('title1').innerText = t.title1;
         document.getElementById('card1Title').innerText = t.card1Title;
         document.getElementById('card1Desc').innerText = t.card1Desc;
@@ -229,6 +377,12 @@
         document.getElementById('card3Title').innerText = t.card3Title;
         document.getElementById('card3Desc').innerText = t.card3Desc;
         document.getElementById('title2').innerText = t.title2;
+        document.getElementById('title3').innerText = t.title3;
+        document.getElementById('title4').innerText = t.title4;
+        document.getElementById('title5').innerText = t.title5;
+        document.getElementById('title6').innerText = t.title6;
+        document.getElementById('title7').innerText = t.title7;
+        document.getElementById('title8').innerText = t.title8;
         localStorage.setItem('eurz_lang', lang);
         document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
         if(document.querySelector(`.lang-btn[data-lang="${lang}"]`)) document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
